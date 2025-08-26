@@ -5,6 +5,6 @@ namespace ERAAPI.Services
 {
     public interface IJwtService
     {
-        string GenerateToken(string username, decimal userId);
+        string GenerateToken(string username, decimal userId,decimal RoleId);
     }
 }

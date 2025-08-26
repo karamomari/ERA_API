@@ -34,7 +34,7 @@ namespace ERAAPI.Repositories.Implementations
                             UserName = reader["UserName"] as string,
                             Password = reader["Password"] as string,
                             Active = reader["Active"] as bool?,
-                            RoleId = reader["RoleId"] as decimal?,
+                            RoleId = Convert.ToDecimal(reader["RoleId"]),
                             EmployeeId = reader["EmployeeId"] as decimal?,
                             ManagerId = reader["ManagerId"] as decimal?,
                             BankId = reader["BankId"] as decimal?,

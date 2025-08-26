@@ -36,6 +36,268 @@
         }
       }
     },
+    "/api/Privilege/byrole/{roleId}": {
+      "get": {
+        "tags": [
+          "Privilege"
+        ],
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Privilege"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Privilege"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Privilege"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/ById": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "default": 0
+            }
+          },
+          {
+            "name": "productCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "barcode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/GetAllProducts": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductInfoDTOIEnumerableGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductInfoDTOIEnumerableGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductInfoDTOIEnumerableGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/SaveProduct": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductCreateDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductCreateDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductCreateDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecimalGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecimalGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecimalGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/ByGroup/{groupId}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductListGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductListGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductListGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/CheckReferences/{productId}": {
+      "delete": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/ProductGroup/all": {
       "get": {
         "tags": [
@@ -191,6 +453,83 @@
         }
       }
     },
+    "/api/Tax/ProductTaxes": {
+      "get": {
+        "tags": [
+          "Tax"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxListGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxListGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxListGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tax/SaveOrUpdate": {
+      "post": {
+        "tags": [
+          "Tax"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tax"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tax"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tax"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecimalGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecimalGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecimalGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/User/SaveOrUpdateUser": {
       "post": {
         "tags": [
@@ -277,6 +616,371 @@
             "format": "password"
           },
           "language": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Privilege": {
+        "type": "object",
+        "properties": {
+          "privilegeId": {
+            "type": "number",
+            "format": "double"
+          },
+          "roleId": {
+            "type": "number",
+            "format": "double"
+          },
+          "formName": {
+            "type": "string",
+            "nullable": true
+          },
+          "action": {
+            "type": "string",
+            "nullable": true
+          },
+          "extraDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "number",
+            "format": "double"
+          },
+          "productCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "barcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "productName": {
+            "type": "string",
+            "nullable": true
+          },
+          "groupId": {
+            "type": "number",
+            "format": "double"
+          },
+          "productType": {
+            "type": "string",
+            "nullable": true
+          },
+          "productTrackingType": {
+            "type": "string",
+            "nullable": true
+          },
+          "brandId": {
+            "type": "number",
+            "format": "double"
+          },
+          "unitId": {
+            "type": "number",
+            "format": "double"
+          },
+          "sizeId": {
+            "type": "number",
+            "format": "double"
+          },
+          "modelNoId": {
+            "type": "number",
+            "format": "double"
+          },
+          "taxId": {
+            "type": "number",
+            "format": "double"
+          },
+          "taxapplicableOn": {
+            "type": "string",
+            "nullable": true
+          },
+          "purchaseRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "salesRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "mrp": {
+            "type": "number",
+            "format": "double"
+          },
+          "minimumStock": {
+            "type": "number",
+            "format": "double"
+          },
+          "maximumStock": {
+            "type": "number",
+            "format": "double"
+          },
+          "reorderLevel": {
+            "type": "number",
+            "format": "double"
+          },
+          "godownId": {
+            "type": "number",
+            "format": "double"
+          },
+          "rackId": {
+            "type": "number",
+            "format": "double"
+          },
+          "isallowBatch": {
+            "type": "boolean"
+          },
+          "ismultipleunit": {
+            "type": "boolean"
+          },
+          "isBom": {
+            "type": "boolean"
+          },
+          "isopeningstock": {
+            "type": "boolean"
+          },
+          "narration": {
+            "type": "string",
+            "nullable": true
+          },
+          "partNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "productImage": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "productImageString": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "isshowRemember": {
+            "type": "boolean"
+          },
+          "saleable": {
+            "type": "boolean"
+          },
+          "purchasable": {
+            "type": "boolean"
+          },
+          "consumable": {
+            "type": "boolean"
+          },
+          "extra1": {
+            "type": "string",
+            "nullable": true
+          },
+          "extra2": {
+            "type": "string",
+            "nullable": true
+          },
+          "extraDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "number",
+            "format": "double"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modifiedBy": {
+            "type": "number",
+            "format": "double"
+          },
+          "modifiedDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductCreateDTO": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "number",
+            "format": "double"
+          },
+          "productCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "barcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "productName": {
+            "type": "string",
+            "nullable": true
+          },
+          "groupId": {
+            "type": "number",
+            "format": "double"
+          },
+          "productType": {
+            "type": "string",
+            "nullable": true
+          },
+          "productTrackingType": {
+            "type": "string",
+            "nullable": true
+          },
+          "brandId": {
+            "type": "number",
+            "format": "double"
+          },
+          "unitId": {
+            "type": "number",
+            "format": "double"
+          },
+          "sizeId": {
+            "type": "number",
+            "format": "double"
+          },
+          "modelNoId": {
+            "type": "number",
+            "format": "double"
+          },
+          "taxId": {
+            "type": "number",
+            "format": "double"
+          },
+          "taxApplicableOn": {
+            "type": "string",
+            "nullable": true
+          },
+          "purchaseRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "salesRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "mrp": {
+            "type": "number",
+            "format": "double"
+          },
+          "minimumStock": {
+            "type": "number",
+            "format": "double"
+          },
+          "maximumStock": {
+            "type": "number",
+            "format": "double"
+          },
+          "reorderLevel": {
+            "type": "number",
+            "format": "double"
+          },
+          "godownId": {
+            "type": "number",
+            "format": "double"
+          },
+          "rackId": {
+            "type": "number",
+            "format": "double"
+          },
+          "isAllowBatch": {
+            "type": "boolean"
+          },
+          "isMultipleUnit": {
+            "type": "boolean"
+          },
+          "isBom": {
+            "type": "boolean"
+          },
+          "isOpeningStock": {
+            "type": "boolean"
+          },
+          "narration": {
+            "type": "string",
+            "nullable": true
+          },
+          "productImageString": {
+            "type": "string",
+            "nullable": true
+          },
+          "productImage": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "isShowRemember": {
+            "type": "boolean"
+          },
+          "saleable": {
+            "type": "boolean"
+          },
+          "purchasable": {
+            "type": "boolean"
+          },
+          "consumable": {
+            "type": "boolean"
+          },
+          "extra1": {
+            "type": "string",
+            "nullable": true
+          },
+          "extra2": {
+            "type": "string",
+            "nullable": true
+          },
+          "extraDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "number",
+            "format": "double"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modifiedBy": {
+            "type": "number",
+            "format": "double"
+          },
+          "modifiedDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "message": {
             "type": "string",
             "nullable": true
           }
@@ -385,6 +1089,161 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProductGroup"
+            },
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductInfoDTO": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "number",
+            "format": "double"
+          },
+          "productCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "barcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "productName": {
+            "type": "string",
+            "nullable": true
+          },
+          "groupIdName": {
+            "type": "string",
+            "nullable": true
+          },
+          "salesRate": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductInfoDTOIEnumerableGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductInfoDTO"
+            },
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductListGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            },
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tax": {
+        "type": "object",
+        "properties": {
+          "taxId": {
+            "type": "number",
+            "format": "double"
+          },
+          "taxName": {
+            "type": "string",
+            "nullable": true
+          },
+          "taxType": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicableOn": {
+            "type": "string",
+            "nullable": true
+          },
+          "rate": {
+            "type": "number",
+            "format": "double"
+          },
+          "calculatingMode": {
+            "type": "string",
+            "nullable": true
+          },
+          "narration": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "extraDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "extra1": {
+            "type": "string",
+            "nullable": true
+          },
+          "extra2": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "number",
+            "format": "double"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modifiedBy": {
+            "type": "number",
+            "format": "double"
+          },
+          "modifiedDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TaxListGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tax"
             },
             "nullable": true
           },

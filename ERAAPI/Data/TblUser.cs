@@ -13,7 +13,7 @@ public partial class TblUser
 
     public bool? Active { get; set; }
 
-    public decimal? RoleId { get; set; }
+    public decimal RoleId { get; set; }
 
     public decimal? EmployeeId { get; set; }
 

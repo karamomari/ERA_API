@@ -1,4 +1,5 @@
-﻿using ERAAPI.DTO;
+﻿using ERAAPI.Attributes;
+using ERAAPI.DTO;
 using ERAAPI.DTO.ProductGroupDTO;
 using ERAAPI.Models;
 using ERAAPI.Repositories.Interfaces;
@@ -24,6 +25,7 @@ namespace ERAAPI.Controllers
 
 
         [HttpGet("all")]
+        [AuthorizePrivilege("Product Group", "ViewAll")]
         public async Task<ActionResult<GeneralResponse<IEnumerable<ProductGroup>>>> GetAll()
         {
             var list = await _repo.GetAllPOSAsync();
@@ -37,8 +39,8 @@ namespace ERAAPI.Controllers
         }
 
 
-
         [HttpGet("{id}")]
+        [AuthorizePrivilege("Product Group", "View")]
         public async Task<ActionResult<GeneralResponse<ProductGroup>>> GetById(decimal id)
         {
             var entity = await _repo.GetByIdAsync(id);
@@ -62,6 +64,7 @@ namespace ERAAPI.Controllers
 
 
         [HttpPost("saveandupdate")]
+        [AuthorizePrivilege("Product Group", "Update")]
         public async Task<ActionResult<GeneralResponse<decimal>>> SaveAndUpdate(ProductGroupCreateDTO dto)
         {
 
@@ -114,6 +117,7 @@ namespace ERAAPI.Controllers
 
 
         [HttpDelete("{id}")]
+        [AuthorizePrivilege("Product Group", "Delete")]
         public async Task<ActionResult<GeneralResponse<bool>>> Delete(decimal id)
         {
             if (id == 0)
@@ -145,9 +149,6 @@ namespace ERAAPI.Controllers
                 Message = "Deleted successfully"
             };
         }
-
-
-
 
 
 

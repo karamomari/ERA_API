@@ -1,5 +1,6 @@
 ﻿using ERAAPI.Data;
 using ERAAPI.DTO;
+using ERAAPI.Middleware;
 using ERAAPI.Repositories.Implementations;
 using ERAAPI.Repositories.Interfaces;
 using ERAAPI.Services;
@@ -20,11 +21,25 @@ builder.Services.AddDbContext<EraPosDbNewLastContext>(options =>
 
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IUser, UserRepositorycs>();
+builder.Services.AddScoped<IProductGroupRepository, ProductGroupRepository>();
+builder.Services.AddScoped<IPrivilegeRepository, PrivilegeRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ITaxRepository, TaxRepository>();
+
+
+builder.Services.AddMemoryCache();
+
 builder.Services.AddScoped<IJwtService, JwtService>();
-builder.Services.AddScoped<IProductGroupRepository, ProductGroupRepository>();  
+builder.Services.AddScoped<PrivilegeService>();
 
 
-var key = Encoding.ASCII.GetBytes("ThisIsMyUltraSuperSecretKey_ForJwt1234567890!");
+
+
+
+//var key = Encoding.ASCII.GetBytes("ThisIsMyUltraSuperSecretKey_ForJwt1234567890!");
+var key = Encoding.ASCII.GetBytes(builder.Configuration["SecretKey"]);
+
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -43,6 +58,8 @@ builder.Services.AddAuthentication(options =>
         ClockSkew = TimeSpan.Zero
     };
 });
+
+
 
 builder.Services.AddAuthorization();
 
@@ -97,7 +114,7 @@ app.UseExceptionHandler(appError =>
             {
                 Success = false,
                 Data = null,
-                Message = contextFeature.Error.Message
+                Message = contextFeature.Error.Message.ToString()
             };
 
             var json = JsonSerializer.Serialize(response);
@@ -142,6 +159,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
+
+app.UseMiddleware<PrivilegeMiddleware>();
+
+
 app.UseAuthorization();
 
 app.MapControllers();

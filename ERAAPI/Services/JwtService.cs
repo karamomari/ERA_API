@@ -11,12 +11,12 @@ namespace ERAAPI.Services
     {
         private readonly string _secretKey;
 
-        public JwtService()
+        public JwtService(IConfiguration configuration)
         {
-            _secretKey = "ThisIsMyUltraSuperSecretKey_ForJwt1234567890!";
+            _secretKey = configuration["SecretKey"];
         }
 
-        public string GenerateToken(string username, decimal userId)
+        public string GenerateToken(string username, decimal userId,decimal RoleId)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_secretKey);
@@ -27,7 +27,7 @@ namespace ERAAPI.Services
                 {
                 new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
                 new Claim(ClaimTypes.Name, username ?? ""),
-                //new Claim(ClaimTypes.Role, user.RoleId?.ToString() ?? "")
+                new Claim("RoleId", RoleId.ToString() ?? "")
             }),
                 Expires = DateTime.UtcNow.AddHours(24), 
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

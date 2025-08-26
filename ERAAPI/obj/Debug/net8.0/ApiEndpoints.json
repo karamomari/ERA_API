@@ -16,6 +16,166 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ERAAPI.Controllers.PrivilegeController",
+    "Method": "GetPrivilegesByRole",
+    "RelativePath": "api/Privilege/byrole/{roleId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleId",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ERAAPI.Models.Privilege, ERAAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ERAAPI.Controllers.ProductController",
+    "Method": "GetProductsByGroup",
+    "RelativePath": "api/Product/ByGroup/{groupId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ERAAPI.DTO.GeneralResponse\u00601[[System.Collections.Generic.List\u00601[[ERAAPI.Models.Product, ERAAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ERAAPI.Controllers.ProductController",
+    "Method": "GetProductById",
+    "RelativePath": "api/Product/ById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "productCode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "barcode",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ERAAPI.DTO.GeneralResponse\u00601[[ERAAPI.Models.Product, ERAAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ERAAPI.Controllers.ProductController",
+    "Method": "CheckAndDeleteProduct",
+    "RelativePath": "api/Product/CheckReferences/{productId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ERAAPI.DTO.GeneralResponse\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ERAAPI.Controllers.ProductController",
+    "Method": "GetAllProducts",
+    "RelativePath": "api/Product/GetAllProducts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "ERAAPI.DTO.GeneralResponse\u00601[[System.Collections.Generic.IEnumerable\u00601[[ERAAPI.DTO.Product.ProductInfoDTO, ERAAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ERAAPI.Controllers.ProductController",
+    "Method": "SaveProduct",
+    "RelativePath": "api/Product/SaveProduct",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "product",
+        "Type": "ERAAPI.DTO.Product.ProductCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ERAAPI.DTO.GeneralResponse\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "ERAAPI.Controllers.ProductGroupController",
     "Method": "GetById",
     "RelativePath": "api/ProductGroup/{id}",
@@ -98,6 +258,52 @@
       {
         "Name": "dto",
         "Type": "ERAAPI.DTO.ProductGroupDTO.ProductGroupCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ERAAPI.DTO.GeneralResponse\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ERAAPI.Controllers.TaxController",
+    "Method": "GetAllProductTaxes",
+    "RelativePath": "api/Tax/ProductTaxes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "ERAAPI.DTO.GeneralResponse\u00601[[System.Collections.Generic.List\u00601[[ERAAPI.Models.Tax, ERAAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ERAAPI.Controllers.TaxController",
+    "Method": "SaveOrUpdateTax",
+    "RelativePath": "api/Tax/SaveOrUpdate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tax",
+        "Type": "ERAAPI.Models.Tax",
         "IsRequired": true
       }
     ],

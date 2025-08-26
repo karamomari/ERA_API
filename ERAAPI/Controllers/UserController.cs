@@ -1,4 +1,5 @@
-﻿using ERAAPI.DTO;
+﻿using ERAAPI.Attributes;
+using ERAAPI.DTO;
 using ERAAPI.DTO.UserDTO;
 using ERAAPI.Helpers;
 using ERAAPI.Models;
@@ -24,6 +25,7 @@ namespace ERAAPI.Controllers
 
 
         [HttpPost("SaveOrUpdateUser")]
+        [AuthorizePrivilege("User Creation", "Update")]
         public IActionResult SaveOrUpdateUser([FromBody] UserRequestDto userDto)
         {
             if (!ModelState.IsValid)

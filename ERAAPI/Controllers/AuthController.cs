@@ -22,11 +22,14 @@ namespace ERAAPI.Controllers
         EraPosDbNewLastContext _eraPosDbNewLastContext;
         private readonly IAuthRepository _authRepository;
         private readonly IJwtService _jwtService;
+        private string _EncryptKey;
         public AuthController(EraPosDbNewLastContext eraPosDbNewLastContext,
-            IAuthRepository authRepository, IJwtService jwtService)
+            IAuthRepository authRepository, IJwtService jwtService,
+            IConfiguration configuration)
         {
             _authRepository = authRepository;
             _jwtService = jwtService;
+            _EncryptKey = configuration["EncryptKey"];
         }
 
 
@@ -45,7 +48,7 @@ namespace ERAAPI.Controllers
                     });
                 }
 
-                string encryptedPassword = EncryptOrDecrypt.EncryptString(request.Password, "NaiSoft");
+                string encryptedPassword = EncryptOrDecrypt.EncryptString(request.Password, _EncryptKey);
                 var user = _authRepository.GetUserByUserNameAndPassword(request.UserName, encryptedPassword.Trim());
 
                 if (user == null)
@@ -57,7 +60,7 @@ namespace ERAAPI.Controllers
                     });
                 }
 
-                var token = _jwtService.GenerateToken(user.UserName, user.UserId);
+                var token = _jwtService.GenerateToken(user.UserName, user.UserId,user.RoleId);
 
                 return Ok(new LoginResponseDTO
                 {
