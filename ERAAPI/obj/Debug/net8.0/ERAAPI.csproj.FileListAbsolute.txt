@@ -167,3 +167,4 @@ C:\Users\eraSOFT\Documents\eraPOS25052025\ERAAPI\ERAAPI\bin\Debug\net8.0\runtime
 C:\Users\eraSOFT\Documents\eraPOS25052025\ERAAPI\ERAAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\eraSOFT\Documents\eraPOS25052025\ERAAPI\ERAAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\eraSOFT\Documents\eraPOS25052025\ERAAPI\ERAAPI\obj\Debug\net8.0\ERAAPI.sourcelink.json
+C:\Users\eraSOFT\Documents\eraPOS25052025\ERAAPI\ERAAPI\bin\Debug\net8.0\AutoMapper.dll

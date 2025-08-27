@@ -1,12 +1,14 @@
 ﻿using ERAAPI.Data;
 using ERAAPI.DTO;
 using ERAAPI.Middleware;
+using ERAAPI.Profiles;
 using ERAAPI.Repositories.Implementations;
 using ERAAPI.Repositories.Interfaces;
 using ERAAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Net;
 using System.Text;
@@ -25,7 +27,7 @@ builder.Services.AddScoped<IProductGroupRepository, ProductGroupRepository>();
 builder.Services.AddScoped<IPrivilegeRepository, PrivilegeRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ITaxRepository, TaxRepository>();
-
+builder.Services.AddScoped<IUnitRepository, UnitRepository>();
 
 builder.Services.AddMemoryCache();
 
@@ -33,10 +35,17 @@ builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<PrivilegeService>();
 
 
+builder.Services.AddAutoMapper(cfg => cfg.AddProfile<UnitProfile>());
+builder.Services.AddAutoMapper(cfg => cfg.AddProfile<ProductGroupProfile>());
+
+
+//builder.Services.AddAutoMapper(cfg =>
+//{
+//    cfg.AddMaps(AppDomain.CurrentDomain.GetAssemblies());
+//});
 
 
 
-//var key = Encoding.ASCII.GetBytes("ThisIsMyUltraSuperSecretKey_ForJwt1234567890!");
 var key = Encoding.ASCII.GetBytes(builder.Configuration["SecretKey"]);
 
 

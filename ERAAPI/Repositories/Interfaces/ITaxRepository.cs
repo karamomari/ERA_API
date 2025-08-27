@@ -8,5 +8,8 @@ namespace ERAAPI.Repositories.Interfaces
         Task<decimal> SaveOrUpdateTaxAsync(Tax tax);
 
         Task<List<Tax>> GetAllProductTaxesAsync();
+        Task<List<Tax>> GetAllTaxesAsync();
+        Task<Tax?> TaxViewById(decimal id);
+        Task<int> TaxCheckReferencesDelete(decimal id);
     }
 }

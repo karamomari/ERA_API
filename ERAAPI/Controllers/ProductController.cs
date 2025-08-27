@@ -3,6 +3,7 @@ using ERAAPI.DTO;
 using ERAAPI.DTO.Product;
 using ERAAPI.Models;
 using ERAAPI.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -10,6 +11,7 @@ using System.Collections.Generic;
 
 namespace ERAAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase

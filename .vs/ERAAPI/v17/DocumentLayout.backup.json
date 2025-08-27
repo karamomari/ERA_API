@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|c:\\users\\erasoft\\documents\\erapos25052025\\eraapi\\eraapi\\controllers\\taxcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|solutionrelative:eraapi\\controllers\\taxcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|c:\\users\\erasoft\\documents\\erapos25052025\\eraapi\\eraapi\\repositories\\implementations\\taxrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|solutionrelative:eraapi\\repositories\\implementations\\taxrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|c:\\users\\erasoft\\documents\\erapos25052025\\eraapi\\eraapi\\repositories\\interfaces\\itaxrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|solutionrelative:eraapi\\repositories\\interfaces\\itaxrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|c:\\users\\erasoft\\documents\\erapos25052025\\eraapi\\eraapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|solutionrelative:eraapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|c:\\users\\erasoft\\documents\\erapos25052025\\eraapi\\eraapi\\controllers\\unitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|solutionrelative:eraapi\\controllers\\unitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|c:\\users\\erasoft\\documents\\erapos25052025\\eraapi\\eraapi\\controllers\\productgroupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|solutionrelative:eraapi\\controllers\\productgroupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|c:\\users\\erasoft\\documents\\erapos25052025\\eraapi\\eraapi\\profiles\\productgroupprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8205500-96A9-4F00-A560-47794DD32887}|ERAAPI\\ERAAPI.csproj|solutionrelative:eraapi\\profiles\\productgroupprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +26,62 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Program.cs",
-              "RelativeDocumentMoniker": "ERAAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Program.cs",
-              "RelativeToolTip": "ERAAPI\\Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABoAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T14:12:42.422Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TaxRepository.cs",
-              "DocumentMoniker": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Repositories\\Implementations\\TaxRepository.cs",
-              "RelativeDocumentMoniker": "ERAAPI\\Repositories\\Implementations\\TaxRepository.cs",
-              "ToolTip": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Repositories\\Implementations\\TaxRepository.cs",
-              "RelativeToolTip": "ERAAPI\\Repositories\\Implementations\\TaxRepository.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAYwAsAAAAGAAAAAAAAAA==",
+              "Title": "UnitsController.cs",
+              "DocumentMoniker": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Controllers\\UnitsController.cs",
+              "RelativeDocumentMoniker": "ERAAPI\\Controllers\\UnitsController.cs",
+              "ToolTip": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Controllers\\UnitsController.cs",
+              "RelativeToolTip": "ERAAPI\\Controllers\\UnitsController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T14:11:10.46Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ITaxRepository.cs",
-              "DocumentMoniker": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Repositories\\Interfaces\\ITaxRepository.cs",
-              "RelativeDocumentMoniker": "ERAAPI\\Repositories\\Interfaces\\ITaxRepository.cs",
-              "ToolTip": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Repositories\\Interfaces\\ITaxRepository.cs",
-              "RelativeToolTip": "ERAAPI\\Repositories\\Interfaces\\ITaxRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T14:10:45.266Z",
+              "WhenOpened": "2025-08-27T12:46:30.318Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TaxController.cs",
-              "DocumentMoniker": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Controllers\\TaxController.cs",
-              "RelativeDocumentMoniker": "ERAAPI\\Controllers\\TaxController.cs",
-              "ToolTip": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Controllers\\TaxController.cs",
-              "RelativeToolTip": "ERAAPI\\Controllers\\TaxController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAkwCIAAABaAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Program.cs",
+              "RelativeDocumentMoniker": "ERAAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Program.cs",
+              "RelativeToolTip": "ERAAPI\\Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACoAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T14:07:56.034Z",
+              "WhenOpened": "2025-08-27T12:37:02.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductGroupProfile.cs",
+              "DocumentMoniker": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Profiles\\ProductGroupProfile.cs",
+              "RelativeDocumentMoniker": "ERAAPI\\Profiles\\ProductGroupProfile.cs",
+              "ToolTip": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Profiles\\ProductGroupProfile.cs",
+              "RelativeToolTip": "ERAAPI\\Profiles\\ProductGroupProfile.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA8wBQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T12:33:15.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductGroupController.cs",
+              "DocumentMoniker": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Controllers\\ProductGroupController.cs",
+              "RelativeDocumentMoniker": "ERAAPI\\Controllers\\ProductGroupController.cs",
+              "ToolTip": "C:\\Users\\eraSOFT\\Documents\\eraPOS25052025\\ERAAPI\\ERAAPI\\Controllers\\ProductGroupController.cs",
+              "RelativeToolTip": "ERAAPI\\Controllers\\ProductGroupController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAEUAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T12:30:50.302Z",
               "EditorCaption": ""
             }
           ]

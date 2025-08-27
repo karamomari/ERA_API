@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ERAAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48f1861e6c95f352eac9f09834540ab6dbc262bc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ea7ef7e0293360df495bdb0220202360840c1cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("ERAAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ERAAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

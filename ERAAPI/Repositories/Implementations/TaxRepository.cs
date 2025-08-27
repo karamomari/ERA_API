@@ -4,6 +4,9 @@ using ERAAPI.Repositories.Interfaces;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.Data.SqlTypes;
+using System.Globalization;
+using System.Xml.Linq;
 
 namespace ERAAPI.Repositories.Implementations
 {
@@ -41,6 +44,69 @@ namespace ERAAPI.Repositories.Implementations
 
             return list;
         }
+
+
+        public async Task<List<Tax>> GetAllTaxesAsync()
+        {
+            var list = new List<Tax>();
+            using var sqlcon = new SqlConnection(_connectionString);
+            using var cmd = new SqlCommand("eraPOS_TaxViewAll", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            await sqlcon.OpenAsync();
+            using var reader = await cmd.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                list.Add(new Tax
+                {
+                    TaxId = reader["taxId"] != DBNull.Value ? Convert.ToDecimal(reader["taxId"]) : 0,
+                    TaxName = reader["taxName"]?.ToString() ?? string.Empty,
+                    TaxType = reader["taxType"]?.ToString() ?? string.Empty,
+                    ApplicableOn = reader["applicableOn"]?.ToString() ?? string.Empty,
+                    Rate = reader["taxRate"] != DBNull.Value ? Convert.ToDecimal(reader["taxRate"]) : 0
+                });
+            }
+
+            return list;
+        }
+
+        public async Task<Tax?> TaxViewById(decimal id)
+        {
+            Tax? item = null;
+
+            using var sqlcon = new SqlConnection(_connectionString);
+            using var cmd = new SqlCommand("eraPOS_TaxViewById", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.Decimal).Value = id;
+
+            await sqlcon.OpenAsync();
+            using var reader = await cmd.ExecuteReaderAsync();
+
+            if (await reader.ReadAsync())
+            {
+                item = new Tax
+                {
+                    TaxId = (decimal)reader["taxId"],
+                    TaxName = (string)reader["taxName"],
+                    TaxType = (string)reader["taxType"],
+                    ApplicableOn = (string)reader["applicableOn"],
+                    Rate = (decimal)reader["rate"],
+                    CalculatingMode = (string)reader["calculatingMode"],
+                    Narration = (string)reader["narration"],
+                    IsActive = (bool)reader["isActive"],
+                    ExtraDate = (DateTime)reader["extraDate"],
+                    Extra1 = (string)reader["extra1"],
+                    Extra2 = (string)reader["extra2"],
+                    CreatedBy = (decimal)reader["createdBy"],
+                    CreatedDate = (DateTime)reader["createdDate"],
+                    ModifiedBy = (decimal)reader["modifiedBy"],
+                    ModifiedDate = (DateTime)reader["modifiedDate"]
+                };
+            }
+
+            return item;
+        }
+
 
         public async Task<bool> TaxNameExistsAsync(string taxName, decimal taxId)
         {
@@ -81,5 +147,20 @@ namespace ERAAPI.Repositories.Implementations
             var result = await cmd.ExecuteScalarAsync();
             return result != null ? Convert.ToDecimal(result) : 0;
         }
+
+
+        public async Task<int> TaxCheckReferencesDelete(decimal id)
+        {
+            using var sqlcon = new SqlConnection(_connectionString);
+            using var cmd = new SqlCommand("eraPOS_TaxCheckReferencesDelete", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.Decimal).Value = id;
+
+            await sqlcon.OpenAsync();
+            int result = await cmd.ExecuteNonQueryAsync();
+
+            return result;
+        }
+
     }
 }

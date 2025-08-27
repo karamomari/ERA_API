@@ -1,4 +1,5 @@
-﻿using ERAAPI.Attributes;
+﻿using AutoMapper;
+using ERAAPI.Attributes;
 using ERAAPI.DTO;
 using ERAAPI.DTO.ProductGroupDTO;
 using ERAAPI.Models;
@@ -16,10 +17,11 @@ namespace ERAAPI.Controllers
     public class ProductGroupController : ControllerBase
     {
         private readonly IProductGroupRepository _repo;
-
-        public ProductGroupController(IProductGroupRepository repo)
+        private readonly IMapper _mapper;
+        public ProductGroupController(IProductGroupRepository repo,IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
 
@@ -85,20 +87,16 @@ namespace ERAAPI.Controllers
                 };
             }
 
-            var entity = new ProductGroup
-            {
-                GroupId = dto.GroupId,
-                GroupName = dto.GroupName,
-                GroupUnder = dto.GroupUnder,
-                Narration = dto.Narration,
-                Extra1 = "",
-                Extra2 = "",
-                ExtraDate = DateTime.Now,
-                CreatedBy = currentUserId,
-                CreatedDate = DateTime.Now,
-                ModifiedBy = currentUserId,
-                ModifiedDate = DateTime.Now
-            };
+
+            var entity = _mapper.Map<ProductGroup>(dto);
+
+            entity.Extra1 = "";
+            entity.Extra2 = "";
+            entity.ExtraDate = DateTime.Now;
+            entity.CreatedBy = currentUserId;
+            entity.CreatedDate = DateTime.Now;
+            entity.ModifiedBy = currentUserId;
+            entity.ModifiedDate = DateTime.Now;
 
             var id = await _repo.SaveAndUpdateAsync(entity);
 
